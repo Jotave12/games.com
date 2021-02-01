@@ -10,13 +10,26 @@
 <body>
   <h1>MEUS GAMES AQUI!</h1>
   <a href="teste.js">MEU PRIMEIRO GAME! <a/> 
-    const msg = document.getElementById("msg");
-const file = document.getElementById("fileUploaded");
-
-file.onchange = function() {
-    msg.innerHTML = "Arquivo enviado.";
-}
-<input type="file" id="fileUploaded"/>
-<div id="msg" style="padding-top: 30px; color: #f00;"></div>
 </body>
 </html>
+  let fileInput = document.getElementById("fileInput");
+let form1 = document.getElementById("form1");
+
+//No evento submit.
+form1.addEventListener('submit', (e) => {
+
+  //Verifica se há algum arquivo selecionado.
+  if (fileInput.value == "") {
+    e.preventDefault(); //Cancela o evento.
+    fileInput.click(); //Chama a janela de seleção de arquivo.
+  }
+});
+
+//Após selecionar e dar ok 
+fileInput.addEventListener('input', (e) => {
+  form1.requestSubmit(); // faz uma nova solicitação de envio de formulário.
+});
+<form action="/upload" id="form1" method="post" enctype="multipart/form-data">
+  <input type="file" id="fileInput" name="fileUploaded" hidden="true" />
+  <input type="submit" value="Enviar arquivo" />
+</form>
