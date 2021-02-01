@@ -1,35 +1,18 @@
-<!DOCTYPE html>
-<script src = "path / to / ruffle / ruffle.js"> </script>
-<html lang="">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>SWFObject dynamic embed - step 3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <script type="text/javascript" src="swfobject.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MINHA PÁGINA DE GAMES!</title>
-</head>
-<body>
-  <h1>MEUS GAMES AQUI!</h1>
-  <a href="teste.js">MEU PRIMEIRO GAME! <a/> 
-</body>
+    <script type="text/javascript">
+        swfobject.embedSWF("myContent.swf", "myContent", "300", "120", "9.0.0");
+    </script>
+
+  </head>
+  <body>
+    <div id="myContent">
+      <p>Alternative content</p>
+    </div>
+  </body>
 </html>
-  let fileInput = document.getElementById("fileInput");
-let form1 = document.getElementById("form1");
-
-//No evento submit.
-form1.addEventListener('submit', (e) => {
-
-  //Verifica se há algum arquivo selecionado.
-  if (fileInput.value == "") {
-    e.preventDefault(); //Cancela o evento.
-    fileInput.click(); //Chama a janela de seleção de arquivo.
-  }
-});
-
-//Após selecionar e dar ok 
-fileInput.addEventListener('input', (e) => {
-  form1.requestSubmit(); // faz uma nova solicitação de envio de formulário.
-});
-<form action="/upload" id="form1" method="post" enctype="multipart/form-data">
-  <input type="file" id="fileInput" name="fileUploaded" hidden="true" />
-  <input type="submit" value="Enviar arquivo" />
-</form>
