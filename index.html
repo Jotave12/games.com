@@ -9,6 +9,14 @@
 </head>
 <body>
   <h1>MEUS GAMES AQUI!</h1>
-  <a href="base.swf">MEU PRIMEIRO GAME <a/> 
+  <a href="teste.js">MEU PRIMEIRO GAME <a/> 
+    const msg = document.getElementById("msg");
+const file = document.getElementById("fileUploaded");
+
+file.onchange = function() {
+    msg.innerHTML = "Arquivo enviado.";
+}
+<input type="file" id="fileUploaded"/>
+<div id="msg" style="padding-top: 30px; color: #f00;"></div>
 </body>
 </html>
